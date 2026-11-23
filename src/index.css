@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #f8f7f3;
+  --color-surface: #fcfcfa;
+  --color-studio: #eceae3;
+  --color-ink: #1a211e;
+  --color-ink-muted: #666d69;
+  --color-sage: #355e4b;
+  --color-sage-hover: #294a3b;
+  --color-caramel: #c87d4b;
+  --color-caramel-soft: #f3e8df;
+  --color-caramel-ink: #9a5b32;
+  --color-border: #e2e5df;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+@keyframes heroKenBurns {
+  0% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.07) translate3d(-0.8%, -0.5%, 0);
+  }
+  100% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+}
+
+.hero-poster-motion {
+  animation: heroKenBurns 22s ease-in-out infinite;
+}
+
+/* Minimalist range input for Ration Calculator */
+input[type="range"].sage-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--color-border);
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"].sage-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--color-sage);
+  border: 2px solid var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-sage);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="range"].sage-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  background: var(--color-sage-hover);
+}
+
+input[type="range"].sage-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--color-sage);
+  border: 2px solid var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-sage);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-poster-motion {
+    animation: none;
+  }
+}
