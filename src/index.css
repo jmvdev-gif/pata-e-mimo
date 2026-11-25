@@ -25,8 +25,11 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  }
+
+  /* Âncoras do menu não ficam escondidas atrás da barra fixa */
+  section[id] {
+    scroll-margin-top: 4rem;
   }
 
   body {
@@ -34,6 +37,11 @@
     background-color: var(--color-canvas);
     color: var(--color-ink);
     overflow-x: hidden;
+  }
+
+  /* Barra de rolagem da página escondida (a rolagem continua funcionando) */
+  html,
+  body {
     scrollbar-width: none;
     -ms-overflow-style: none;
   }

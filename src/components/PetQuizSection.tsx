@@ -300,7 +300,7 @@ export function PetQuizSection({ onOpenWhatsApp }: PetQuizSectionProps) {
                         Como prefere receber o kit?
                       </h3>
                       <p className="mt-1 text-sm text-ink-muted">
-                        Assinantes recebem 15% de desconto em todos os itens recorrentes.
+                        Na compra programada, a loja te chama no WhatsApp na hora de repor, com 15% de desconto.
                       </p>
                     </div>
 
@@ -309,13 +309,13 @@ export function PetQuizSection({ onOpenWhatsApp }: PetQuizSectionProps) {
                         [
                           {
                             id: 'subscription',
-                            title: 'Assinatura Recorrente',
-                            desc: '15% de desconto automático • Cancele quando quiser',
+                            title: 'Compra programada',
+                            desc: '15% de desconto • A loja avisa antes de cada reposição',
                           },
                           {
                             id: 'once',
-                            title: 'Compra Única',
-                            desc: 'Experimente primeiro sem recorrência',
+                            title: 'Compra única',
+                            desc: 'Experimente primeiro, sem compromisso',
                           },
                         ] as { id: PurchasePreference; title: string; desc: string }[]
                       ).map((opt) => (
@@ -439,7 +439,7 @@ export function PetQuizSection({ onOpenWhatsApp }: PetQuizSectionProps) {
                       className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-sage px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-sage-hover"
                     >
                       <Check className="h-4 w-4" />
-                      <span>Adicionar Kit ao Carrinho</span>
+                      <span>Adicionar kit à sacola</span>
                     </button>
 
                     <button

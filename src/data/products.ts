@@ -13,7 +13,7 @@ export const PRODUCTS: Product[] = [
     ages: ['puppy', 'adult', 'senior'],
     goals: ['nutrition_coat', 'comfort_routine'],
     price: 189.9,
-    image: '/images/prod-racao-caes-salmao.jpg',
+    image: '/images/prod-racao-caes-salmao.webp',
     bagWeightKg: 15,
     rationVariants: {
       3: 64.9,
@@ -33,7 +33,7 @@ export const PRODUCTS: Product[] = [
     ages: ['adult', 'senior'],
     goals: ['weight_control', 'nutrition_coat'],
     price: 164.9,
-    image: '/images/prod-racao-caes-light.jpg',
+    image: '/images/prod-racao-caes-light.webp',
     bagWeightKg: 10.1,
     rationVariants: {
       3: 59.9,
@@ -53,7 +53,7 @@ export const PRODUCTS: Product[] = [
     ages: ['puppy', 'adult', 'senior'],
     goals: ['nutrition_coat', 'weight_control', 'comfort_routine'],
     price: 94.9,
-    image: '/images/prod-racao-gatos-salmao.jpg',
+    image: '/images/prod-racao-gatos-salmao.webp',
     bagWeightKg: 3,
     rationVariants: {
       3: 94.9,
@@ -73,7 +73,7 @@ export const PRODUCTS: Product[] = [
     ages: ['puppy', 'adult', 'senior'],
     goals: ['comfort_routine', 'weight_control'],
     price: 249.0,
-    image: '/images/prod-cama-linho.jpg',
+    image: '/images/prod-cama-linho.webp',
   },
   {
     id: 'shampoo-botanico',
@@ -87,7 +87,7 @@ export const PRODUCTS: Product[] = [
     ages: ['puppy', 'adult', 'senior'],
     goals: ['botanical_hygiene', 'nutrition_coat'],
     price: 68.0,
-    image: '/images/prod-shampoo-botanico.jpg',
+    image: '/images/prod-shampoo-botanico.webp',
   },
   {
     id: 'comedouro-ceramica',
@@ -101,7 +101,7 @@ export const PRODUCTS: Product[] = [
     ages: ['puppy', 'adult', 'senior'],
     goals: ['comfort_routine', 'botanical_hygiene', 'weight_control'],
     price: 138.0,
-    image: '/images/prod-comedouro-ceramica.jpg',
+    image: '/images/prod-comedouro-ceramica.webp',
   },
   {
     id: 'petisco-funcional',
@@ -115,7 +115,7 @@ export const PRODUCTS: Product[] = [
     ages: ['puppy', 'adult', 'senior'],
     goals: ['nutrition_coat', 'weight_control', 'botanical_hygiene', 'comfort_routine'],
     price: 49.9,
-    image: '/images/prod-petisco-funcional.jpg',
+    image: '/images/prod-petisco-funcional.webp',
   },
   {
     id: 'arranhador-sisal',
@@ -129,7 +129,7 @@ export const PRODUCTS: Product[] = [
     ages: ['puppy', 'adult', 'senior'],
     goals: ['comfort_routine', 'weight_control'],
     price: 179.0,
-    image: '/images/prod-arranhador-sisal.jpg',
+    image: '/images/prod-arranhador-sisal.webp',
   },
   {
     id: 'corda-algodao',
@@ -143,7 +143,7 @@ export const PRODUCTS: Product[] = [
     ages: ['puppy', 'adult'],
     goals: ['weight_control', 'comfort_routine', 'botanical_hygiene'],
     price: 58.0,
-    image: '/images/prod-brinquedo-corda.jpg',
+    image: '/images/prod-brinquedo-corda.webp',
   },
   {
     id: 'balsamo-patinhas',
@@ -157,7 +157,7 @@ export const PRODUCTS: Product[] = [
     ages: ['puppy', 'adult', 'senior'],
     goals: ['botanical_hygiene', 'comfort_routine'],
     price: 54.0,
-    image: '/images/prod-balsamo-patinhas.jpg',
+    image: '/images/prod-balsamo-patinhas.webp',
   },
   {
     id: 'guia-linho',
@@ -171,7 +171,7 @@ export const PRODUCTS: Product[] = [
     ages: ['puppy', 'adult', 'senior'],
     goals: ['weight_control', 'comfort_routine'],
     price: 118.0,
-    image: '/images/prod-guia-linho.jpg',
+    image: '/images/prod-guia-linho.webp',
   },
   {
     id: 'escova-bambu',
@@ -185,6 +185,6 @@ export const PRODUCTS: Product[] = [
     ages: ['puppy', 'adult', 'senior'],
     goals: ['nutrition_coat', 'botanical_hygiene'],
     price: 64.0,
-    image: '/images/prod-escova-bambu.jpg',
+    image: '/images/prod-escova-bambu.webp',
   },
 ];

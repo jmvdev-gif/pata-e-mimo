@@ -25,7 +25,7 @@ export function CartDrawer({ onCheckoutWhatsApp }: CartDrawerProps) {
   const handleCheckout = () => {
     const message = buildCartWhatsAppMessage(items);
     closeCart();
-    onCheckoutWhatsApp('Finalizar pedido no WhatsApp', message);
+    onCheckoutWhatsApp('Enviar pedido pelo WhatsApp', message);
   };
 
   return (
@@ -149,8 +149,8 @@ export function CartDrawer({ onCheckoutWhatsApp }: CartDrawerProps) {
                                 }`}
                               >
                                 {item.isSubscription
-                                  ? `Assinatura -15% (${item.frequencyDays ?? 30}d)`
-                                  : 'Ativar -15% assinatura'}
+                                  ? `Programada -15% (a cada ${item.frequencyDays ?? 30}d)`
+                                  : 'Programar e ganhar -15%'}
                               </button>
                             </div>
                           </div>
@@ -171,7 +171,7 @@ export function CartDrawer({ onCheckoutWhatsApp }: CartDrawerProps) {
                   </div>
                   {discountTotal > 0 && (
                     <div className="flex justify-between text-caramel-ink">
-                      <dt>Desconto assinatura (-15%)</dt>
+                      <dt>Desconto compra programada (-15%)</dt>
                       <dd className="tabular-nums">-{formatBRL(discountTotal)}</dd>
                     </div>
                   )}
@@ -186,8 +186,11 @@ export function CartDrawer({ onCheckoutWhatsApp }: CartDrawerProps) {
                   onClick={handleCheckout}
                   className="mt-4 w-full cursor-pointer rounded-lg bg-sage px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-sage-hover"
                 >
-                  Finalizar no WhatsApp
+                  Enviar pedido pelo WhatsApp
                 </button>
+                <p className="mt-2.5 text-center text-xs text-ink-muted">
+                  Sem pagamento online: você paga na entrega ou na retirada.
+                </p>
               </div>
             )}
           </motion.aside>

@@ -17,7 +17,7 @@ describe('whatsapp helpers', () => {
         productId: 'cama-linho-cru',
         name: 'Cama Linho Cru',
         shortSpec: 'Tam. M • Algodão orgânico',
-        image: '/images/prod-cama-linho.jpg',
+        image: '/images/prod-cama-linho.webp',
         unitPrice: 249.0,
         quantity: 1,
         isSubscription: false,
@@ -27,7 +27,7 @@ describe('whatsapp helpers', () => {
         productId: 'racao-botanica-caes',
         name: 'Ração Botânica Cães',
         shortSpec: '15 kg • Salmão & Aveia',
-        image: '/images/prod-racao-caes-salmao.jpg',
+        image: '/images/prod-racao-caes-salmao.webp',
         unitPrice: 189.9,
         quantity: 1,
         isSubscription: true,
@@ -37,8 +37,9 @@ describe('whatsapp helpers', () => {
     ];
 
     const message = buildCartWhatsAppMessage(items);
-    expect(message).toContain('*Compra Única:*');
-    expect(message).toContain('*Assinatura Recorrente (-15%):*');
+    expect(message).toContain('*Compra única:*');
+    expect(message).toContain('*Compra programada (-15%):*');
+    expect(message).toContain('Pagamento na entrega ou na retirada');
     expect(message).toContain('a cada 42 dias');
     expect(message).toContain('Cama Linho Cru');
     expect(message).toContain('Ração Botânica Cães');
@@ -61,7 +62,7 @@ describe('whatsapp helpers', () => {
     const quizMsg = buildQuizWhatsAppMessage(answers, rec);
     expect(quizMsg).toContain('Amora');
     expect(quizMsg).toContain('Sob Medida');
-    expect(quizMsg).toContain('Assinatura Recorrente (-15%)');
+    expect(quizMsg).toContain('Compra programada (-15%)');
 
     const rationInput = {
       species: 'dog' as const,

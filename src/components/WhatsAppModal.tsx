@@ -48,7 +48,7 @@ export function WhatsAppModal({
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-xs font-medium tracking-[0.14em] text-ink-muted uppercase">
-              Automação WhatsApp
+              Mensagem pronta
             </p>
             <h3 className="mt-1 font-serif text-2xl font-medium text-ink">{title}</h3>
           </div>
@@ -66,6 +66,10 @@ export function WhatsAppModal({
         <pre className="mt-4 max-h-64 overflow-y-auto rounded-xl border border-border bg-canvas p-4 font-sans text-sm leading-relaxed whitespace-pre-wrap text-ink">
           {message}
         </pre>
+
+        <p className="mt-3 text-xs text-ink-muted">
+          Ao abrir, a mensagem já vai escrita para a loja. Neste projeto conceito o número é fictício.
+        </p>
 
         <div className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:justify-end">
           <button

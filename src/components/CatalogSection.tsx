@@ -31,7 +31,7 @@ export function CatalogSection() {
       <div className="flex flex-col justify-between gap-6 border-b border-border pb-6 md:flex-row md:items-end">
         <div>
           <p className="text-xs font-medium tracking-[0.16em] text-ink-muted uppercase">
-            Catálogo Essencial
+            Catálogo
           </p>
           <h2 className="mt-2 font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
             Produtos selecionados
@@ -39,7 +39,7 @@ export function CatalogSection() {
         </div>
 
         <div
-          className="flex flex-wrap items-center gap-x-5 gap-y-2"
+          className="-mx-5 flex items-center gap-x-5 overflow-x-auto px-5 pb-1 [scrollbar-width:none] md:mx-0 md:flex-wrap md:gap-y-2 md:overflow-visible md:px-0"
           role="tablist"
           aria-label="Filtrar produtos"
         >
@@ -52,7 +52,7 @@ export function CatalogSection() {
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => setActiveFilter(filter.key)}
-                className={`cursor-pointer border-b-2 pb-1 text-sm font-medium transition-colors ${
+                className={`shrink-0 cursor-pointer border-b-2 pb-1 text-sm font-medium transition-colors ${
                   isActive
                     ? 'border-sage text-ink'
                     : 'border-transparent text-ink-muted hover:text-ink'
@@ -65,7 +65,7 @@ export function CatalogSection() {
         </div>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-6 lg:grid-cols-3">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

@@ -49,14 +49,14 @@ export function RationCalculatorSection({
       frequencyDays: result.recommendedCadenceDays,
       bagWeightKg: input.bagSizeKg,
       overridePrice: result.regularBagPrice,
-      overrideSpec: `${bagLabel} • Plano inteligente`,
+      overrideSpec: `${bagLabel} • Reposição programada`,
     });
     openCart();
   };
 
   const handleWhatsAppReminder = () => {
     const message = buildRationWhatsAppMessage(input, result);
-    onOpenWhatsApp('Lembrete e assinatura via WhatsApp', message);
+    onOpenWhatsApp('Lembrete de reposição no WhatsApp', message);
   };
 
   const chipClass = (active: boolean) =>
@@ -71,14 +71,14 @@ export function RationCalculatorSection({
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="mb-10">
           <p className="text-xs font-medium tracking-[0.16em] text-ink-muted uppercase">
-            Assinatura Inteligente
+            Compra programada
           </p>
           <h2 className="mt-2 font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
             Calculadora de ração e recompra
           </h2>
           <p className="mt-2 max-w-xl text-sm text-ink-muted sm:text-base">
-            Calcule a duração exata do pacote para o perfil do seu pet e ative a
-            reposição automática com 15% de desconto.
+            Descubra quanto tempo o pacote dura para o seu pet e programe a reposição:
+            a loja te chama no WhatsApp antes da ração acabar, com 15% de desconto.
           </p>
         </div>
 
@@ -252,13 +252,13 @@ export function RationCalculatorSection({
                   </dd>
                 </div>
                 <div className="flex items-center justify-between py-3">
-                  <dt className="text-ink-muted">Reenvio automático sugerido</dt>
+                  <dt className="text-ink-muted">Lembrete de reposição</dt>
                   <dd className="font-medium text-ink tabular-nums">
                     A cada {result.recommendedCadenceDays} dias ({result.nextDeliveryDate})
                   </dd>
                 </div>
                 <div className="flex items-center justify-between py-3">
-                  <dt className="text-ink-muted">Valor assinatura (-15%)</dt>
+                  <dt className="text-ink-muted">Valor programado (-15%)</dt>
                   <dd className="font-semibold text-ink tabular-nums">
                     <span className="mr-2 text-xs font-normal text-ink-muted line-through">
                       {formatBRL(result.regularBagPrice)}
@@ -281,14 +281,14 @@ export function RationCalculatorSection({
                 onClick={handleSubscribe}
                 className="w-full cursor-pointer rounded-lg bg-sage px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-sage-hover"
               >
-                Ativar Assinatura no Carrinho
+                Programar compra na sacola
               </button>
               <button
                 type="button"
                 onClick={handleWhatsAppReminder}
                 className="w-full cursor-pointer rounded-lg border border-border bg-canvas px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-sage"
               >
-                Agendar Lembrete no WhatsApp
+                Pedir lembrete no WhatsApp
               </button>
             </div>
           </div>

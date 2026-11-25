@@ -12,8 +12,16 @@ interface AddItemOptions {
   overrideSpec?: string;
 }
 
+export interface AddedNotice {
+  name: string;
+  /** Muda a cada adição para reiniciar o aviso mesmo com o mesmo produto. */
+  stamp: number;
+}
+
 interface CartContextValue {
   items: CartItem[];
+  lastAdded: AddedNotice | null;
+  dismissAdded: () => void;
   isOpen: boolean;
   openCart: () => void;
   closeCart: () => void;
@@ -55,6 +63,7 @@ function loadInitialCart(): CartItem[] {
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>(loadInitialCart);
   const [isOpen, setIsOpen] = useState(false);
+  const [lastAdded, setLastAdded] = useState<AddedNotice | null>(null);
 
   useEffect(() => {
     try {
@@ -95,6 +104,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         },
       ];
     });
+    setLastAdded({ name: product.name, stamp: Date.now() });
   };
 
   const addKit = (products: Product[], isSubscription: boolean) => {
@@ -204,6 +214,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
     <CartContext.Provider
       value={{
         items,
+        lastAdded,
+        dismissAdded: () => setLastAdded(null),
         isOpen,
         openCart: () => setIsOpen(true),
         closeCart: () => setIsOpen(false),

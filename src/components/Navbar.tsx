@@ -5,8 +5,9 @@ import { useCart } from '../context/CartContext';
 
 const NAV_LINKS = [
   { label: 'Produtos', href: '#produtos' },
-  { label: 'Sob Medida', href: '#sob-medida' },
+  { label: 'Sob medida', href: '#sob-medida' },
   { label: 'Calculadora', href: '#calculadora' },
+  { label: 'Loja e entrega', href: '#loja' },
 ];
 
 export function Navbar() {

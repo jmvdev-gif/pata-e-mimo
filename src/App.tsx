@@ -8,6 +8,10 @@ import { RationCalculatorSection } from './components/RationCalculatorSection';
 import { ShowcaseFooter } from './components/ShowcaseFooter';
 import { CartDrawer } from './components/CartDrawer';
 import { WhatsAppModal } from './components/WhatsAppModal';
+import { HowItWorksSection } from './components/HowItWorksSection';
+import { StoreInfoSection } from './components/StoreInfoSection';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { AddedToast } from './components/AddedToast';
 
 interface WhatsAppPreviewState {
   isOpen: boolean;
@@ -32,12 +36,16 @@ export default function App() {
         <Navbar />
         <main>
           <HeroSection />
+          <HowItWorksSection />
           <CatalogSection />
           <PetQuizSection onOpenWhatsApp={openWhatsAppPreview} />
           <RationCalculatorSection onOpenWhatsApp={openWhatsAppPreview} />
+          <StoreInfoSection onOpenWhatsApp={openWhatsAppPreview} />
         </main>
         <ShowcaseFooter />
         <CartDrawer onCheckoutWhatsApp={openWhatsAppPreview} />
+        <AddedToast />
+        <FloatingWhatsApp onOpenWhatsApp={openWhatsAppPreview} />
         <WhatsAppModal
           isOpen={waModal.isOpen}
           title={waModal.title}

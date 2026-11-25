@@ -8,6 +8,17 @@ import type {
 } from '../types/pet';
 import { applySubscriptionDiscount, formatBRL, roundCurrency } from './currency';
 
+/** Fechamento das mensagens de pedido: a loja não cobra online. */
+const ORDER_FOOTER = [
+  'Prefiro: ( ) entrega  ( ) retirada na loja',
+  'Bairro:',
+  'Pagamento na entrega ou na retirada (Pix, cartão ou dinheiro).',
+];
+
+export function buildContactWhatsAppMessage(): string {
+  return `Olá, equipe *${BRAND_CONFIG.petStoreName}*! Tenho uma dúvida sobre um produto/entrega:`;
+}
+
 export function buildCartWhatsAppMessage(items: CartItem[]): string {
   if (items.length === 0) {
     return `Olá! Gostaria de conhecer os produtos da ${BRAND_CONFIG.petStoreName}.`;
@@ -23,7 +34,7 @@ export function buildCartWhatsAppMessage(items: CartItem[]): string {
   ];
 
   if (onceItems.length > 0) {
-    lines.push('*Compra Única:*');
+    lines.push('*Compra única:*');
     for (const item of onceItems) {
       const lineTotal = roundCurrency(item.unitPrice * item.quantity);
       lines.push(`- ${item.quantity}x ${item.name} (${item.shortSpec}) — ${formatBRL(lineTotal)}`);
@@ -32,7 +43,7 @@ export function buildCartWhatsAppMessage(items: CartItem[]): string {
   }
 
   if (subItems.length > 0) {
-    lines.push('*Assinatura Recorrente (-15%):*');
+    lines.push('*Compra programada (-15%):*');
     for (const item of subItems) {
       const discountedUnit = applySubscriptionDiscount(item.unitPrice);
       const lineTotal = roundCurrency(discountedUnit * item.quantity);
@@ -58,9 +69,10 @@ export function buildCartWhatsAppMessage(items: CartItem[]): string {
   const savings = roundCurrency(regularSubtotal - finalTotal);
 
   if (savings > 0) {
-    lines.push(`Economia na assinatura: -${formatBRL(savings)}`);
+    lines.push(`Economia na compra programada: -${formatBRL(savings)}`);
   }
   lines.push(`*Total estimado: ${formatBRL(finalTotal)}*`);
+  lines.push('', ...ORDER_FOOTER);
 
   return lines.join('\n');
 }
@@ -72,8 +84,8 @@ export function buildQuizWhatsAppMessage(
   const speciesLabel = answers.species === 'dog' ? 'Cão' : 'Gato';
   const petName = answers.petName.trim() || speciesLabel;
   const modeLabel = recommendation.isSubscription
-    ? 'Assinatura Recorrente (-15%)'
-    : 'Compra Única';
+    ? 'Compra programada (-15%)'
+    : 'Compra única';
 
   const lines: string[] = [
     `Olá, equipe *${BRAND_CONFIG.petStoreName}*!`,
@@ -88,6 +100,8 @@ export function buildQuizWhatsAppMessage(
     '',
     `Modalidade: ${modeLabel}`,
     `*Total do Kit: ${formatBRL(recommendation.finalTotal)}*`,
+    '',
+    ...ORDER_FOOTER,
   ];
 
   return lines.join('\n');
@@ -102,14 +116,14 @@ export function buildRationWhatsAppMessage(
 
   return [
     `Olá, equipe *${BRAND_CONFIG.petStoreName}*!`,
-    'Calculei a duração ideal da ração e quero ativar o lembrete/assinatura automática:',
+    'Calculei a duração da ração e quero programar a reposição (me avisem pelo WhatsApp antes de acabar):',
     '',
     `- Perfil: ${input.petCount} ${speciesLabel}(s) • ${input.weightKg} kg`,
     `- Consumo estimado: ${result.totalDailyGrams} g/dia`,
     `- Produto: ${result.matchedProduct.name} (${bagLabel})`,
     `- Duração do pacote: ${result.durationDays} dias`,
-    `- Cadência sugerida: reenvio a cada ${result.recommendedCadenceDays} dias (próximo em ${result.nextDeliveryDate})`,
-    `*Valor com -15% assinatura: ${formatBRL(result.subscriptionBagPrice)}*`,
+    `- Lembrete de reposição: a cada ${result.recommendedCadenceDays} dias (próximo em ${result.nextDeliveryDate})`,
+    `*Valor com -15% na compra programada: ${formatBRL(result.subscriptionBagPrice)}*`,
   ].join('\n');
 }
 
