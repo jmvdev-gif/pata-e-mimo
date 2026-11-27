@@ -32,6 +32,18 @@ Versão de produção (gera a pasta `dist/`):
 npm run build
 ```
 
+## Publicar (Cloudflare Pages)
+
+No painel da Cloudflare (**Workers & Pages → Create → Pages → Connect to Git**):
+
+- **Framework preset:** Vite
+- **Build command:** `npm run build`
+- **Build output directory:** `dist`
+- **Variável:** `NODE_VERSION` = `20`
+- **Custom domain:** `petshop.techjmv.com`
+
+Os cabeçalhos de segurança ficam em `public/_headers`.
+
 ## Onde mudar as coisas
 
 | O quê | Arquivo |
@@ -40,7 +52,7 @@ npm run build
 | Produtos, preços e fotos | `src/data/products.ts` |
 | Texto das mensagens do WhatsApp | `src/utils/whatsapp.ts` |
 | Cores e fontes | `src/index.css` |
-| Cabeçalhos de segurança na hospedagem (Vercel) | `vercel.json` |
+| Cabeçalhos de segurança na hospedagem | `public/_headers` |
 
 ## Base
 
